@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe — Revobridge Academy Landing Page</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      color: #ccc;
+      line-height: 1.5;
+    }
+    .section {
+      border: 2px dashed #555;
+      margin: 20px auto;
+      max-width: 1100px;
+      padding: 40px 30px;
+      position: relative;
+    }
+    .section-label {
+      position: absolute;
+      top: -14px;
+      left: 20px;
+      background: #c8ff00;
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 2px 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    h1 { font-size: 28px; color: #fff; margin-bottom: 10px; }
+    h2 { font-size: 22px; color: #c8ff00; margin-bottom: 12px; }
+    h3 { font-size: 16px; color: #fff; margin-bottom: 8px; }
+    p, li { font-size: 14px; margin-bottom: 6px; }
+    ul { padding-left: 20px; }
+    .placeholder-box {
+      background: #333;
+      border: 1px dashed #666;
+      padding: 20px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+      margin: 10px 0;
+    }
+    .btn-placeholder {
+      display: inline-block;
+      border: 2px solid #c8ff00;
+      color: #c8ff00;
+      padding: 10px 28px;
+      margin: 6px 8px 6px 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .btn-placeholder.primary {
+      background: #c8ff00;
+      color: #000;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 14px 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .card {
+      background: #222;
+      border: 1px solid #444;
+      padding: 18px;
+    }
+    .trust-bar {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #444;
+    }
+    .trust-bar span {
+      font-size: 13px;
+      color: #c8ff00;
+      font-weight: 600;
+    }
+    .accordion-item {
+      background: #222;
+      border: 1px solid #444;
+      margin-bottom: 8px;
+      padding: 14px 18px;
+    }
+    .accordion-title {
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .accordion-body {
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 8px;
+      padding-left: 10px;
+    }
+    .timeline-step {
+      background: #222;
+      border-left: 3px solid #c8ff00;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
+    .pricing-card {
+      background: #181818;
+      border: 2px solid #c8ff00;
+      padding: 36px;
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .price-tag {
+      font-size: 40px;
+      font-weight: 800;
+      color: #c8ff00;
+      margin: 14px 0;
+    }
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 12px;
+      color: #666;
+      border-top: 1px solid #333;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .grid-5 { grid-template-columns: 1fr; }
+      .section { padding: 30px 16px; margin: 12px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<div class="section" style="padding: 16px 30px; display: flex; justify-content: space-between; align-items: center;">
+  <span class="section-label">Navbar</span>
+  <div style="color: #fff; font-weight: 800; font-size: 18px;">REV<span style="color: #c8ff00;">O</span>BRIDGE</div>
+  <div>
+    <span style="margin-right: 20px; font-size: 13px;">Curriculum</span>
+    <span style="margin-right: 20px; font-size: 13px;">Pricing</span>
+    <span class="btn-placeholder primary" style="padding: 6px 18px; font-size: 12px;">Enroll Now</span>
+  </div>
+</div>
+
+<!-- ========== SECTION 1: HERO ========== -->
+<div class="section">
+  <span class="section-label">Section 1 — Hero</span>
+  <div class="placeholder-box" style="height: 60px; margin-bottom: 20px;">[Animated gradient / mesh background]</div>
+  <h1>Learn to Build AI Agents & Chatbots — No Coding Required</h1>
+  <p style="color: #aaa; max-width: 700px; margin-bottom: 18px;">A 3-week hands-on program by Revobridge Academy. Go from zero to deploying real AI chatbots on Instagram, WhatsApp, Telegram & websites using n8n.</p>
+  <div>
+    <span class="btn-placeholder primary">Enroll Now</span>
+    <span class="btn-placeholder">See Curriculum</span>
+  </div>
+  <div class="trust-bar">
+    <span>3 Weeks</span>
+    <span>Hands-On Projects</span>
+    <span>No Coding</span>
+    <span>Certificate of Completion</span>
+  </div>
+</div>
+
+<!-- ========== SECTION 2: PROBLEM / PAIN POINTS ========== -->
+<div class="section">
+  <span class="section-label">Section 2 — Problem / Pain Points</span>
+  <h2>The Problem</h2>
+  <p style="margin-bottom: 14px;">"Everyone's talking about AI, but most people have no idea how to actually build with it."</p>
+  <div class="grid-2">
+    <div class="card">
+      <h3 style="color: #ff5555;">&#10060; What Most People Do</h3>
+      <ul>
+        <li>Watch endless YouTube tutorials</li>
+        <li>Play with ChatGPT but build nothing real</li>
+        <li>Try Zapier and hit walls</li>
+        <li>Feel overwhelmed by "AI" jargon</li>
+        <li>Stay stuck as consumers, not builders</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="color: #c8ff00;">&#9989; What This Course Teaches</h3>
+      <ul>
+        <li>Build real AI chatbots from scratch</li>
+        <li>Deploy across 4+ platforms</li>
+        <li>Understand AI agents at a fundamental level</li>
+        <li>Use n8n — a powerful visual builder</li>
+        <li>Walk away with a portfolio of live projects</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top: 12px; color: #c8ff00; font-weight: 600;">"Businesses are paying ₦500k–₦2M+ for AI chatbots you could build yourself."</p>
+</div>
+
+<!-- ========== SECTION 3: WHAT YOU'LL BUILD ========== -->
+<div class="section">
+  <span class="section-label">Section 3 — What You'll Build (Outcomes)</span>
+  <h2>What You'll Build</h2>
+  <p style="margin-bottom: 14px;">5 concrete projects you walk away with:</p>
+  <div class="grid-5">
+    <div class="card" style="text-align: center;">
+      <div class="placeholder-box" style="height: 50px; margin-bottom: 8px;">[Icon]</div>
+      <h3>Telegram AI Assistant</h3>
+      <p style="font-size: 12px;">Smart AI bot on Telegram with memory</p>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="placeholder-box" style="height: 50px; margin-bottom: 8px;">[Icon]</div>
+      <h3>Instagram DM Sales Bot</h3>
+      <p style="font-size: 12px;">Auto-reply + lead capture via DMs</p>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="placeholder-box" style="height: 50px; margin-bottom: 8px;">[Icon]</div>
+      <h3>WhatsApp Support Bot</h3>
+      <p style="font-size: 12px;">Customer support chatbot on WhatsApp</p>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="placeholder-box" style="height: 50px; margin-bottom: 8px;">[Icon]</div>
+      <h3>Website AI Chatbot</h3>
+      <p style="font-size: 12px;">Embeddable chat widget for any site</p>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="placeholder-box" style="height: 50px; margin-bottom: 8px;">[Icon]</div>
+      <h3>Real AI Agent</h3>
+      <p style="font-size: 12px;">Memory, tools & multi-step reasoning</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SECTION 4: CURRICULUM ========== -->
+<div class="section" id="curriculum">
+  <span class="section-label">Section 4 — Curriculum Breakdown</span>
+  <h2>Curriculum</h2>
+  <p style="margin-bottom: 14px;">9 modules — click to expand each:</p>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 1: Foundations — AI, Automation & Agents</div>
+    <div class="accordion-body">
+      <ul>
+        <li>What is AI? (Narrow AI vs General AI, LLMs explained simply)</li>
+        <li>What is Automation? (Manual vs automated systems, real-world examples)</li>
+        <li>What is an AI Agent? (Chatbot vs Agent, components: Input, Brain, Memory, Tools, Output)</li>
+        <li>Understanding APIs (API keys, Webhooks explained visually)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 2: n8n for Absolute Beginners</div>
+    <div class="accordion-body">
+      <ul>
+        <li>What is n8n? (n8n vs Zapier vs Make)</li>
+        <li>Installing n8n (Cloud & self-hosted)</li>
+        <li>Core Concepts (Nodes, Triggers, Actions, Webhooks, Credentials)</li>
+        <li>Building Your First Workflow</li>
+        <li>Data Handling (JSON basics, Expressions, Mapping)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 3: Connecting AI (OpenAI / LLM Integration)</div>
+    <div class="accordion-body">
+      <ul>
+        <li>How LLM APIs Work (Prompts, System messages, Temperature, Tokens)</li>
+        <li>Connecting OpenAI to n8n</li>
+        <li>Prompt Engineering for Chatbots</li>
+        <li>Adding Personality & Role Control</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 4: Telegram AI Chatbot</div>
+    <div class="accordion-body">BotFather setup → n8n connection → OpenAI integration → Error handling → Memory. Final Project: Telegram AI assistant</div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 5: Instagram DM AI Chatbot</div>
+    <div class="accordion-body">Instagram API & Meta Developer setup → Webhooks → AI processing → Auto-reply → Lead capture. Final Project: IG DM AI Sales Assistant</div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 6: WhatsApp AI Chatbot</div>
+    <div class="accordion-body">WhatsApp Business API → Message handling → Structured replies → Compliance. Final Project: WhatsApp AI Support Bot</div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 7: Website AI Chatbot</div>
+    <div class="accordion-body">Widget options → Webhook setup → AI processing → JSON responses → Styling & deployment. Final Project: Website AI chatbot</div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 8: Memory & Intelligence</div>
+    <div class="accordion-body">Stateless vs Stateful → Google Sheets as memory → Supabase basics → Storing & retrieving conversation history</div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Module 9: Building Real AI Agents</div>
+    <div class="accordion-body">Tool-using agents → Multi-step reasoning → Conditional workflows → External APIs. Final Project: Full AI Agent</div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title" style="color: #c8ff00;">Capstone Project</div>
+    <div class="accordion-body">Build all 5 projects + one real AI agent with memory & tool usage</div>
+  </div>
+</div>
+
+<!-- ========== SECTION 5: COURSE FORMAT & TIMELINE ========== -->
+<div class="section">
+  <span class="section-label">Section 5 — Course Format & Timeline</span>
+  <h2>Course Format & Timeline</h2>
+  <p style="margin-bottom: 14px;">3 weeks — live sessions + recorded replays + hands-on projects</p>
+
+  <div class="timeline-step">
+    <h3>Week 1 — Orientation</h3>
+    <p>Introductory Video + Orientation session</p>
+  </div>
+  <div class="timeline-step">
+    <h3>Week 2 — Core Build</h3>
+    <p>Day 1: Modules 2 & 3 (n8n + AI Integration) &nbsp;|&nbsp; Day 2: Modules 4 & 5 (Telegram + Instagram bots)</p>
+  </div>
+  <div class="timeline-step">
+    <h3>Week 3 — Advanced Build</h3>
+    <p>Day 3: Modules 6 & 7 (WhatsApp + Website bots) &nbsp;|&nbsp; Day 4: Modules 8 & 9 (Memory + Agents)</p>
+  </div>
+  <div class="timeline-step">
+    <h3>Week 4 — Capstone</h3>
+    <p>Capstone Project Build — put it all together</p>
+  </div>
+</div>
+
+<!-- ========== SECTION 6: WHO THIS IS FOR ========== -->
+<div class="section">
+  <span class="section-label">Section 6 — Who This Is For</span>
+  <h2>Who This Is For</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Freelancers</h3>
+      <p>Want to offer AI chatbot services to clients</p>
+    </div>
+    <div class="card">
+      <h3>Business Owners</h3>
+      <p>Want to automate customer support & sales</p>
+    </div>
+    <div class="card">
+      <h3>Tech Enthusiasts</h3>
+      <p>Want to build with AI — no coding background needed</p>
+    </div>
+    <div class="card">
+      <h3>Agency Owners / Marketers</h3>
+      <p>Want to add AI to their service offerings</p>
+    </div>
+    <div class="card">
+      <h3>Aspiring AI Entrepreneurs</h3>
+      <p>Want to start an AI automation business</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SECTION 7: INSTRUCTOR / ABOUT ========== -->
+<div class="section">
+  <span class="section-label">Section 7 — Instructor / About Revobridge</span>
+  <h2>About Revobridge</h2>
+  <div class="grid-2">
+    <div>
+      <p style="margin-bottom: 10px;">"Built by practitioners, not theorists. Revobridge builds AI automation systems for businesses across Africa and beyond."</p>
+      <p>Revobridge is an AI automation agency that helps businesses deploy chatbots, agents, and intelligent workflows. This course is the distilled version of what we build for clients — packaged into a beginner-friendly program.</p>
+    </div>
+    <div class="placeholder-box" style="height: 200px;">
+      [Instructor Photo Placeholder]<br>
+      Name / Title / Short Bio
+    </div>
+  </div>
+</div>
+
+<!-- ========== SECTION 8: PRICING ========== -->
+<div class="section" id="enroll">
+  <span class="section-label">Section 8 — Pricing</span>
+  <h2 style="text-align: center;">Enroll Now</h2>
+  <div class="pricing-card">
+    <div style="font-size: 12px; color: #c8ff00; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">[Early Bird Badge Placeholder]</div>
+    <h3>Building AI Agents & Chatbots with n8n</h3>
+    <div class="price-tag">₦XX,XXX</div>
+    <ul style="text-align: left; list-style: none; padding: 0; margin-bottom: 20px;">
+      <li>&#9989; 9 modules of hands-on training</li>
+      <li>&#9989; 5 real-world chatbot projects</li>
+      <li>&#9989; Capstone AI agent project</li>
+      <li>&#9989; Lifetime access to recordings</li>
+      <li>&#9989; Certificate of completion</li>
+      <li>&#9989; Community access</li>
+    </ul>
+    <div class="btn-placeholder primary" style="width: 100%; text-align: center; display: block;">Enroll Now — Limited Spots</div>
+    <div class="placeholder-box" style="margin-top: 12px; height: 30px;">[Countdown Timer Placeholder]</div>
+  </div>
+</div>
+
+<!-- ========== SECTION 9: FAQ ========== -->
+<div class="section">
+  <span class="section-label">Section 9 — FAQ</span>
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="accordion-item">
+    <div class="accordion-title">Do I need coding experience?</div>
+    <div class="accordion-body">No. The entire course uses n8n, a visual workflow builder. Zero coding required.</div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-title">What tools do I need?</div>
+    <div class="accordion-body">A laptop and internet connection. All tools used are free or have free tiers.</div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-title">How long do I have access?</div>
+    <div class="accordion-body">Lifetime access to all recordings and materials.</div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-title">Will I get a certificate?</div>
+    <div class="accordion-body">Yes, upon completing the capstone project.</div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-title">What if I fall behind?</div>
+    <div class="accordion-body">All sessions are recorded. You can catch up at your own pace.</div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-title">Can I build a business with these skills?</div>
+    <div class="accordion-body">Absolutely. Businesses pay ₦500k–₦2M+ for the exact chatbots you'll learn to build.</div>
+  </div>
+</div>
+
+<!-- ========== SECTION 10: FINAL CTA ========== -->
+<div class="section" style="text-align: center;">
+  <span class="section-label">Section 10 — Final CTA</span>
+  <h2 style="font-size: 24px; color: #fff; margin-bottom: 10px;">"The AI wave is here. The question is — are you building, or watching?"</h2>
+  <div class="btn-placeholder primary" style="font-size: 16px; padding: 14px 40px;">Enroll Now</div>
+  <p style="margin-top: 14px; font-size: 13px;">Have questions? Email hello@revobridgeai.com</p>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+  <span class="section-label">Footer</span>
+  <p style="margin-bottom: 8px;">&copy; 2025 Revobridge AI</p>
+  <p style="margin-bottom: 8px;">Privacy Policy &nbsp;|&nbsp; Terms of Service</p>
+  <p>[Twitter/X] &nbsp; [LinkedIn] &nbsp; [Instagram]</p>
+</div>
+
+</body>
+</html>
