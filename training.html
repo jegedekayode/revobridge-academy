@@ -14,6 +14,8 @@
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0a0b'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-family='Arial,sans-serif' font-size='68' font-weight='bold' fill='%23c8ff00'%3EO%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='%230a0a0b'/%3E%3Ctext x='90' y='126' text-anchor='middle' font-family='Arial,sans-serif' font-size='120' font-weight='bold' fill='%23c8ff00'%3EO%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -724,16 +726,15 @@
     .testimonial-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
       padding: 28px;
       display: flex;
       flex-direction: column;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
-    .testimonial-stars {
-      color: #ffd700;
-      font-size: 14px;
-      margin-bottom: 14px;
-      letter-spacing: 2px;
+    .testimonial-card:hover {
+      transform: translateY(-3px);
     }
     .testimonial-text {
       font-size: 14px;
@@ -1218,7 +1219,10 @@
       .testimonials-grid { grid-template-columns: 1fr; }
       .instructor-grid { grid-template-columns: 1fr; }
       .instructor-photo { height: 250px; }
-      .prize-grid { grid-template-columns: repeat(3, 1fr); }
+      .prize-grid { grid-template-columns: 1fr; gap: 12px; }
+      .prize-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; text-align: left; }
+      .prize-card .prize-rank { margin-bottom: 0; font-size: 24px; }
+      .prize-card .prize-label { margin-bottom: 2px; }
       .pricing-card { padding: 36px 24px; }
       .pricing-current { font-size: 42px; }
       section { padding: 70px 0; }
@@ -1230,7 +1234,6 @@
     }
     @media (max-width: 480px) {
       .outcomes-grid { grid-template-columns: 1fr; }
-      .prize-grid { grid-template-columns: 1fr; }
       .hero-btns { flex-direction: column; align-items: center; }
       .btn { width: 100%; }
     }
@@ -1342,27 +1345,42 @@
       </div>
       <div class="outcomes-grid">
         <div class="outcome-card reveal">
-          <div class="outcome-icon">&#9992;&#65039;</div>
+          <div class="outcome-icon" style="background: rgba(34, 158, 217, 0.12);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#229ED9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .54-1.42.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.65-2.89 7.99-3.44 3.81-1.58 4.6-1.86 5.12-1.87.11 0 .37.03.54.17.14.12.18.28.2.45-.01.06.01.24 0 .38z"/></svg>
+          </div>
           <h3>Telegram AI Assistant</h3>
           <p>A smart AI-powered bot on Telegram with memory and context awareness</p>
         </div>
         <div class="outcome-card reveal">
-          <div class="outcome-icon">&#128248;</div>
+          <div class="outcome-icon" style="background: rgba(225, 48, 108, 0.12);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <defs><linearGradient id="ig-grad" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#FFDC80"/><stop offset="25%" stop-color="#F77737"/><stop offset="50%" stop-color="#E1306C"/><stop offset="75%" stop-color="#C13584"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs>
+              <rect x="2" y="2" width="20" height="20" rx="6" stroke="url(#ig-grad)" stroke-width="2" fill="none"/>
+              <circle cx="12" cy="12" r="5" stroke="url(#ig-grad)" stroke-width="2" fill="none"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="url(#ig-grad)"/>
+            </svg>
+          </div>
           <h3>Instagram DM Sales Bot</h3>
           <p>Auto-reply to DMs, qualify leads, and capture customer information</p>
         </div>
         <div class="outcome-card reveal">
-          <div class="outcome-icon">&#128172;</div>
+          <div class="outcome-icon" style="background: rgba(37, 211, 102, 0.12);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.42 1.3-1.96 1.38-.5.07-1.13.1-1.82-.11-.42-.13-.96-.32-1.65-.63-2.91-1.26-4.81-4.2-4.96-4.4-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.01-2.42c.27-.3.58-.37.78-.37.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.47-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.17.29.73 1.2 1.57 1.94 1.08.96 1.99 1.26 2.27 1.4.28.14.45.12.61-.07.17-.19.71-.83.9-1.12.19-.28.38-.24.64-.14.27.1 1.68.79 1.97.94.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+          </div>
           <h3>WhatsApp Support Bot</h3>
           <p>Handle customer support queries 24/7 on WhatsApp Business</p>
         </div>
         <div class="outcome-card reveal">
-          <div class="outcome-icon">&#127760;</div>
+          <div class="outcome-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
           <h3>Website AI Chatbot</h3>
           <p>An embeddable chat widget for any website with AI responses</p>
         </div>
         <div class="outcome-card reveal">
-          <div class="outcome-icon">&#129302;</div>
+          <div class="outcome-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" stroke-width="1.5"><rect x="4" y="4" width="16" height="12" rx="3" fill="rgba(200,255,0,0.1)"/><circle cx="9" cy="10" r="1.5" fill="#c8ff00"/><circle cx="15" cy="10" r="1.5" fill="#c8ff00"/><path d="M9 14h6" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16v3" stroke="#c8ff00" stroke-linecap="round"/><path d="M16 16v3" stroke="#c8ff00" stroke-linecap="round"/><path d="M3 8v4" stroke="#c8ff00" stroke-width="2" stroke-linecap="round"/><path d="M21 8v4" stroke="#c8ff00" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
           <h3>Real AI Agent</h3>
           <p>An agent with memory, tools, and multi-step reasoning capabilities</p>
         </div>
@@ -1553,6 +1571,45 @@
   <section class="challenge-section">
     <div class="container">
       <div class="challenge-card reveal">
+        <div style="margin-bottom: 24px;">
+          <svg width="220" height="180" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: 0 auto;" aria-hidden="true">
+            <!-- Rocket body -->
+            <rect x="90" y="40" width="40" height="80" rx="20" fill="#161618" stroke="#c8ff00" stroke-width="2"/>
+            <!-- Rocket nose -->
+            <path d="M110 10 L130 40 H90 Z" fill="#c8ff00" opacity="0.9"/>
+            <!-- Rocket window -->
+            <circle cx="110" cy="70" r="10" fill="#0a0a0b" stroke="#c8ff00" stroke-width="1.5"/>
+            <circle cx="110" cy="70" r="5" fill="#c8ff00" opacity="0.3"/>
+            <!-- Fins -->
+            <path d="M90 100 L70 130 L90 120 Z" fill="#c8ff00" opacity="0.6"/>
+            <path d="M130 100 L150 130 L130 120 Z" fill="#c8ff00" opacity="0.6"/>
+            <!-- Flame -->
+            <ellipse cx="110" cy="135" rx="12" ry="20" fill="#c8ff00" opacity="0.4"/>
+            <ellipse cx="110" cy="138" rx="7" ry="14" fill="#c8ff00" opacity="0.7"/>
+            <ellipse cx="110" cy="140" rx="4" ry="8" fill="#fff" opacity="0.5"/>
+            <!-- Circuit lines left -->
+            <line x1="40" y1="60" x2="70" y2="60" stroke="#c8ff00" stroke-width="1" opacity="0.2"/>
+            <line x1="30" y1="80" x2="75" y2="80" stroke="#c8ff00" stroke-width="1" opacity="0.15"/>
+            <line x1="50" y1="100" x2="78" y2="100" stroke="#c8ff00" stroke-width="1" opacity="0.2"/>
+            <circle cx="40" cy="60" r="3" fill="#c8ff00" opacity="0.3"/>
+            <circle cx="30" cy="80" r="3" fill="#c8ff00" opacity="0.25"/>
+            <circle cx="50" cy="100" r="3" fill="#c8ff00" opacity="0.3"/>
+            <!-- Circuit lines right -->
+            <line x1="145" y1="60" x2="180" y2="60" stroke="#c8ff00" stroke-width="1" opacity="0.2"/>
+            <line x1="145" y1="80" x2="190" y2="80" stroke="#c8ff00" stroke-width="1" opacity="0.15"/>
+            <line x1="142" y1="100" x2="170" y2="100" stroke="#c8ff00" stroke-width="1" opacity="0.2"/>
+            <circle cx="180" cy="60" r="3" fill="#c8ff00" opacity="0.3"/>
+            <circle cx="190" cy="80" r="3" fill="#c8ff00" opacity="0.25"/>
+            <circle cx="170" cy="100" r="3" fill="#c8ff00" opacity="0.3"/>
+            <!-- Sparkles -->
+            <circle cx="55" cy="40" r="2" fill="#c8ff00" opacity="0.5"/>
+            <circle cx="165" cy="45" r="2" fill="#c8ff00" opacity="0.5"/>
+            <circle cx="45" cy="130" r="1.5" fill="#c8ff00" opacity="0.4"/>
+            <circle cx="175" cy="125" r="1.5" fill="#c8ff00" opacity="0.4"/>
+            <!-- 72H label -->
+            <text x="110" y="172" text-anchor="middle" fill="#c8ff00" font-family="Outfit, sans-serif" font-size="14" font-weight="800" opacity="0.6">72H</text>
+          </svg>
+        </div>
         <div class="section-tag">Capstone Challenge</div>
         <h3>72-Hour Build Challenge</h3>
         <p>Put your skills to the test. We'll give you a real-world problem — you have 72 hours to build an AI-powered solution. The best builds win cash prizes.</p>
@@ -1664,77 +1721,42 @@
   <section class="testimonials-section">
     <div class="container">
       <div class="section-header center reveal">
-        <div class="section-tag">Testimonials</div>
-        <h2 class="section-title">What Our Students Say</h2>
+        <div class="section-tag">Social Proof</div>
+        <h2 class="section-title">What People Are Saying</h2>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card reveal">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text">"I went from knowing absolutely nothing about AI to building a WhatsApp bot for my business in just 2 weeks. My customers think I hired a whole tech team. This course is insane value."</p>
+          <p class="testimonial-text">"This course gave me the confidence to offer AI automation as a service. I built my first chatbot in week 2 and landed a paying client by week 4."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">AO</div>
             <div>
               <div class="testimonial-name">Adaeze O.</div>
-              <div class="testimonial-role">E-commerce Business Owner, Lagos</div>
+              <div class="testimonial-role">Freelance Automation Consultant</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card reveal">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text">"I'm a marketer — zero coding skills. Now I'm charging clients &#8358;300k to build the exact chatbots I learned to make here. The ROI on this course is ridiculous."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">KE</div>
-            <div>
-              <div class="testimonial-name">Kalu E.</div>
-              <div class="testimonial-role">Digital Marketing Freelancer, Abuja</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text">"The n8n + AI agent module blew my mind. I built an agent that qualifies leads, books meetings, and sends follow-up emails — all automated. This is the future."</p>
+          <p class="testimonial-text">"I was skeptical about 'no coding required' but it's real. The n8n workflows are intuitive and the instructor breaks everything down."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">TM</div>
             <div>
               <div class="testimonial-name">Tunde M.</div>
-              <div class="testimonial-role">Tech Enthusiast & Startup Founder, Ibadan</div>
+              <div class="testimonial-role">Digital Marketing Agency Owner</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card reveal">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text">"I was skeptical about 'no coding required' but they actually delivered. Every module is visual, hands-on, and practical. Best investment I made this year."</p>
+          <p class="testimonial-text">"The capstone project alone was worth the investment. I now have a full portfolio of AI chatbots I can show potential clients."</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">FN</div>
+            <div class="testimonial-avatar">CE</div>
             <div>
-              <div class="testimonial-name">Favour N.</div>
-              <div class="testimonial-role">Agency Owner, Port Harcourt</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text">"The capstone challenge pushed me to think like a real builder. I now have a portfolio of 5 working bots and landed my first AI automation client within a week of graduating."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">SO</div>
-            <div>
-              <div class="testimonial-name">Samuel O.</div>
-              <div class="testimonial-role">Freelance AI Automation Specialist, Accra</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text">"As a non-technical founder, understanding how AI chatbots work gave me a massive edge. I can now brief my team properly and even prototype solutions myself."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">BJ</div>
-            <div>
-              <div class="testimonial-name">Blessing J.</div>
-              <div class="testimonial-role">SaaS Founder, Lagos</div>
+              <div class="testimonial-name">Chisom E.</div>
+              <div class="testimonial-role">Tech Entrepreneur</div>
             </div>
           </div>
         </div>
       </div>
+      <p class="reveal" style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 24px; font-style: italic;">Names and photos used with permission. Results may vary.</p>
     </div>
   </section>
 
@@ -1745,14 +1767,14 @@
         <div class="instructor-info reveal">
           <div class="section-tag">Your Instructor</div>
           <h3>Meet Elewachi Emmanuel</h3>
-          <p style="color: var(--accent); font-weight: 600; font-size: 14px; margin-bottom: 12px;">AI Automation Specialist &middot; Founder, Revobridge AI</p>
+          <p style="color: var(--accent); font-weight: 600; font-size: 14px; margin-bottom: 12px;">Partner &amp; Consultant, Revobridge</p>
           <p>AI Automation Specialist with 4+ years of experience building intelligent workflows and automation systems that drive operational efficiency. Expert in designing and deploying AI-powered solutions using no/low code tools to automate complex business processes.</p>
           <p>Proven track record of reducing manual workload by 15&ndash;20 hours weekly while eliminating operational costs through smart automation and self-hosted solutions. Proficient in n8n, Make.com, OpenAI, Claude, prompt engineering, chatbot development, and AI agent architecture.</p>
           <p style="margin-top: 4px;"><strong style="color: var(--text-primary);">Built by a practitioner, not a theorist.</strong> This course is the distilled version of what Elewachi builds for paying clients — packaged into a structured, beginner-friendly 4-week program.</p>
           <p style="color: var(--accent); font-weight: 600;">Build. Automate. Deploy.</p>
         </div>
         <div class="instructor-photo reveal" style="overflow: hidden;">
-          <img src="instructor.jpg" alt="Elewachi Emmanuel — AI Automation Specialist & Instructor" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);font-size:14px;\'>Photo: instructor.jpg</div>';">
+          <img src="Instructor.jpg.jpg" alt="Elewachi Emmanuel — Partner & Consultant, Revobridge" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);font-size:14px;\'>Photo: instructor.jpg</div>';">
         </div>
       </div>
     </div>
@@ -1767,6 +1789,7 @@
         <p class="section-subtitle">Join the next cohort starting March 30th</p>
       </div>
       <div class="pricing-card reveal">
+        <div style="display: inline-block; background: var(--accent); color: #000; padding: 6px 18px; border-radius: 50px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">Cohort 1 — Only 25 Spots</div>
         <div class="pricing-badge">&#9889; 40% Off — Limited Time</div>
         <h3>Building AI Agents & Chatbots with n8n</h3>
         <div class="pricing-price">
@@ -1818,10 +1841,22 @@
           </li>
         </ul>
         <a href="https://nestuge.com/checkout?items=%5B%7B%22id%22%3A%22pr_mm5usqpznctdaenffftvr8hh1v9xo%22%2C%22type%22%3A%22registration%22%2C%22plan%22%3A%22pl_mm5usrvghhznxmoyknwqr24g8ih0e%22%2C%22count%22%3A1%2C%22affiliate%22%3Anull%7D%5D&currency=NGN&redirectUrl=https%3A%2F%2Fnestuge.com%2Fbuildchatbots" class="btn btn-primary pricing-cta" rel="noopener noreferrer">Enroll Now — Limited Spots</a>
-        <div class="pricing-spots">
-          <div class="pulse-dot"></div>
-          <span>12 people are viewing this page right now</span>
+        <div class="pricing-spots" style="color: #F59E0B;">
+          <div class="pulse-dot" style="background: #F59E0B;"></div>
+          <span>&#128274; 12 spots remaining</span>
         </div>
+      </div>
+
+      <!-- MONEY-BACK GUARANTEE -->
+      <div class="reveal" style="max-width: 520px; margin: 40px auto 0; background: var(--bg-card); border: 1px solid rgba(200, 255, 0, 0.2); border-radius: 12px; padding: 32px; text-align: center;">
+        <div style="margin-bottom: 16px;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M24 4L6 14v10c0 11.1 7.68 21.47 18 24 10.32-2.53 18-12.9 18-24V14L24 4z" fill="rgba(200,255,0,0.08)" stroke="#c8ff00" stroke-width="2"/>
+            <path d="M20 25l4 4 8-8" stroke="#c8ff00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">100% Money-Back Guarantee</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">Complete the course. Build all 5 projects. If you don't feel it was worth every naira, email us within 14 days of course completion for a full refund. No questions asked.</p>
       </div>
     </div>
   </section>
