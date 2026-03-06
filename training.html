@@ -10,8 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://revobridgeai.com/training">
   <!-- Security headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com; frame-ancestors 'none';">
-  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-ancestors 'none';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0a0b'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-family='Arial,sans-serif' font-size='68' font-weight='bold' fill='%23c8ff00'%3EO%3C/text%3E%3C/svg%3E">
@@ -1774,7 +1773,7 @@
           <p style="color: var(--accent); font-weight: 600;">Build. Automate. Deploy.</p>
         </div>
         <div class="instructor-photo reveal" style="overflow: hidden;">
-          <img src="Instructor.jpg.jpg" alt="Elewachi Emmanuel — Partner & Consultant, Revobridge" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);font-size:14px;\'>Photo: instructor.jpg</div>';">
+          <img src="instructor.jpg" alt="Elewachi Emmanuel — Partner & Consultant, Revobridge" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);font-size:14px;\'>Photo: instructor.jpg</div>';">
         </div>
       </div>
     </div>
@@ -1997,6 +1996,7 @@
           <div class="form-error" id="phone-error">Please enter your phone number</div>
         </div>
         <button type="submit" class="btn btn-primary modal-submit">View Curriculum</button>
+        <div class="form-error" id="form-submit-error" style="text-align: center; margin-top: 8px;"></div>
       </form>
     </div>
   </div>
@@ -2015,9 +2015,7 @@
       }
 
       // ===== SECURITY: Decode obfuscated URLs (base64) =====
-      // To update: btoa('your-url') in browser console, paste result here
-      var _c = atob('aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vZG9jdW1lbnQvZC8xbU5aVHEwb044aUU2YUduaTRRZnp5T3hVa1Rya0h6cHVpVS1hVFRySnRNZy9lZGl0P3VzcD1zaGFyaW5n');
-      var _w = atob('aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4RUpiblhIYi1pYWd5dndROTJtNHE3VTB6ZHJtUkhoNkYxeDNrZkdnWER2STNTc1ZadzE2czVoZkdmY1F1Uld0WkMvZXhlYw==');
+      var _w = atob('aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3TUh4b3VibWlLV0JWeWhCM290ZXV2QmJoR0ZxbEpCMmNKbmhIX0x1OHJaWUhhaGZwMVJoMWlPeE9OMnh3eENUb04vZXhlYw==');
 
       // ===== SECURITY: Rate limiter =====
       var RATE_KEY = 'revobridge_form_submissions';
@@ -2140,9 +2138,33 @@
       var modal = document.getElementById('leadModal');
       var modalClose = document.getElementById('modalClose');
       var leadForm = document.getElementById('leadForm');
+      var submitBtn = leadForm.querySelector('.modal-submit');
+      var SUBMITTED_KEY = 'revobridge_curriculum_submitted';
+
+      function scrollToCurriculum() {
+        var el = document.getElementById('curriculum');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function showToast(msg) {
+        var toast = document.createElement('div');
+        toast.textContent = msg;
+        toast.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--accent,#c8ff00);color:#000;padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;z-index:3000;opacity:0;transition:opacity 0.3s;font-family:var(--font-body,sans-serif);box-shadow:0 4px 20px rgba(0,0,0,0.4);';
+        document.body.appendChild(toast);
+        requestAnimationFrame(function() { toast.style.opacity = '1'; });
+        setTimeout(function() {
+          toast.style.opacity = '0';
+          setTimeout(function() { toast.remove(); }, 300);
+        }, 4000);
+      }
 
       function openModal(e) {
         e.preventDefault();
+        // Skip popup if already submitted this session
+        if (sessionStorage.getItem(SUBMITTED_KEY)) {
+          scrollToCurriculum();
+          return;
+        }
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
       }
@@ -2171,12 +2193,14 @@
         if (e.key === 'Escape') closeModal();
       });
 
-      // ===== FORM SUBMISSION (with sanitization + rate limiting) =====
+      // ===== FORM SUBMISSION (with sanitization + rate limiting + loading state) =====
       leadForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         // Reset errors
         document.querySelectorAll('.form-error').forEach(function(el) { el.style.display = 'none'; });
+        var formError = document.getElementById('form-submit-error');
+        if (formError) formError.style.display = 'none';
 
         // Rate limit check
         if (isRateLimited()) {
@@ -2205,28 +2229,49 @@
 
         if (!valid) return;
 
-        // Sanitize before sending
+        // Sanitize
         var data = {
           name: sanitize(nameRaw),
           email: sanitize(emailRaw),
           phone: sanitize(phoneRaw),
-          source: 'curriculum_download',
+          source: 'revobridge-academy-landing-page',
           timestamp: new Date().toISOString()
         };
+
+        // Loading state
+        var origText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.6';
 
         // Record submission for rate limiting
         recordSubmission();
 
-        // Submit to webhook (fire and forget)
+        // Submit to webhook
         fetch(_w, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
           body: JSON.stringify(data)
-        }).catch(function() { /* silent fail — still redirect */ });
-
-        // Redirect to curriculum (noopener)
-        closeModal();
-        window.open(_c, '_blank', 'noopener,noreferrer');
+        }).then(function() {
+          // Success
+          sessionStorage.setItem(SUBMITTED_KEY, '1');
+          closeModal();
+          leadForm.reset();
+          showToast('Check your email! Curriculum sent.');
+          setTimeout(scrollToCurriculum, 500);
+        }).catch(function() {
+          // Error — show inline error, keep form data
+          var errEl = document.getElementById('form-submit-error');
+          if (errEl) {
+            errEl.textContent = 'Something went wrong. Please try again.';
+            errEl.style.display = 'block';
+          }
+        }).finally(function() {
+          submitBtn.textContent = origText;
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        });
       });
 
     })();
