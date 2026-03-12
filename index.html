@@ -1136,8 +1136,8 @@ body {
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="#contact" class="btn-ghost">Book a Call</a>
-    <a href="#start" class="btn-primary">Start a Project</a>
+    <a href="#contact" class="btn-ghost" onclick="ttq.track('Contact');">Book a Call</a>
+    <a href="#start" class="btn-primary" onclick="ttq.track('Contact');">Start a Project</a>
     <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.add('active');document.body.style.overflow='hidden';">
       <span></span><span></span><span></span>
     </button>
@@ -1155,8 +1155,8 @@ body {
   <a href="/training" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Academy</a>
   <a href="#contact" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Contact</a>
   <div class="mobile-ctas">
-    <a href="#contact" class="btn-outline-mobile" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Book a Call</a>
-    <a href="#start" class="btn-primary-mobile" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Start a Project</a>
+    <a href="#contact" class="btn-outline-mobile" onclick="ttq.track('Contact');document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Book a Call</a>
+    <a href="#start" class="btn-primary-mobile" onclick="ttq.track('Contact');document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Start a Project</a>
   </div>
 </div>
 
@@ -1165,7 +1165,7 @@ body {
   <h1>AI that drives <em>Revenue</em> and powers <em>Operations</em></h1>
   <p class="hero-sub">We design and deploy AI systems that automate your workflows, multiply your sales capacity, and run your operations — while you focus on growth.</p>
   <div class="hero-ctas">
-    <a href="#start" class="btn-primary-lg">Start a Project</a>
+    <a href="#start" class="btn-primary-lg" onclick="ttq.track('Contact');">Start a Project</a>
     <a href="#products" class="btn-outline">Explore Products</a>
   </div>
 </section>
@@ -1566,8 +1566,8 @@ body {
   <h2>Let's build something that <em>compounds</em></h2>
   <p>Tell us what's slowing your business down. We'll show you exactly what to automate, the ROI you'll see, and how fast we can ship it.</p>
   <div class="cta-buttons" id="contact">
-    <a href="mailto:hello@revobridgeai.com" class="btn-primary-lg">Start a Project</a>
-    <a href="mailto:hello@revobridgeai.com" class="btn-outline">Book a Discovery Call</a>
+    <a href="mailto:hello@revobridgeai.com" class="btn-primary-lg" onclick="ttq.track('Contact');">Start a Project</a>
+    <a href="mailto:hello@revobridgeai.com" class="btn-outline" onclick="ttq.track('Contact');">Book a Discovery Call</a>
   </div>
 </section>
 

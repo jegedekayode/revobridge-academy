@@ -2279,7 +2279,7 @@
         }).then(function() {
           // Success
           fbq('track', 'Lead');
-          ttq.track('SubmitForm');
+          ttq.track('Lead');
           sessionStorage.setItem(SUBMITTED_KEY, '1');
           closeModal();
           leadForm.reset();
