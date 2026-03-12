@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"c:/Users/MY LAPTOP/Downloads/REVOBRIDGE/\"*.html)",
+      "Read(//c/Users/MY LAPTOP/Downloads/REVOBRIDGE/**)"
+    ]
+  }
+}
