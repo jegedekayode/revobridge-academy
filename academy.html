@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revobridge Academy — Learn to Build AI Systems</title>
+<meta name="description" content="Learn to build AI systems that businesses pay ₦500k–₦2M+ for. Hands-on programs, real tools, industry mentors. No coding required.">
+<meta property="og:title" content="Revobridge Academy — Learn to Build AI Systems">
+<meta property="og:description" content="Hands-on AI automation programs. Build real systems. No coding required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://revobridgeai.com/academy">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0a0b'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-family='Arial,sans-serif' font-size='68' font-weight='bold' fill='%23c8ff00'%3EO%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1619450039476296');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1619450039476296&ev=PageView&noscript=1"/></noscript>
+<!-- TikTok Pixel -->
+<script>
+!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load('D6PJ70BC77U06JA6IPAG');ttq.page();}(window,document,'ttq');
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#050505;--bg2:#0a0a0a;--card:#0f0f0f;--card-h:#141414;
+  --border:#1a1a1a;--border-h:#2a2a2a;
+  --text:#f0f0f0;--text2:#888;--text3:#555;
+  --accent:#c8ff00;--accent-dim:rgba(200,255,0,0.08);--accent-glow:rgba(200,255,0,0.15);
+  --font:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--text2);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(5,5,5,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;}
+.navbar-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-size:18px;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-0.5px;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-ghost{font-size:14px;color:var(--text2);text-decoration:none;padding:8px 16px;border:1px solid var(--border);border-radius:8px;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--border-h);color:var(--text);}
+.btn-nav-cta{font-size:14px;font-weight:600;color:#000;background:var(--accent);text-decoration:none;padding:8px 20px;border-radius:8px;transition:opacity 0.2s;}
+.btn-nav-cta:hover{opacity:0.9;}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:999;padding:80px 32px 32px;flex-direction:column;overflow-y:auto;}
+.mobile-menu.active{display:flex;}
+.mobile-menu-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--text);font-size:28px;cursor:pointer;}
+.mobile-menu a{display:block;font-size:18px;color:var(--text2);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:hover{color:var(--text);}
+.mobile-ctas{margin-top:32px;display:flex;flex-direction:column;gap:12px;}
+.mobile-ctas a{border-bottom:none!important;text-align:center;padding:14px 24px;border-radius:8px;font-weight:600;font-size:15px;}
+.mobile-ctas .mbtn-primary{background:var(--accent);color:#000;}
+.mobile-ctas .mbtn-outline{border:1px solid var(--border);color:var(--text);}
+
+/* HERO */
+.hero{padding:140px 24px 80px;text-align:center;max-width:860px;margin:0 auto;}
+.hero-tag{display:inline-block;background:var(--accent-dim);border:1px solid rgba(200,255,0,0.2);color:var(--accent);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:24px;}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:800;color:var(--text);line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px;}
+.hero p{font-size:18px;color:var(--text2);max-width:620px;margin:0 auto 32px;}
+.trust-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;font-size:13px;color:var(--text3);margin-top:8px;}
+.trust-bar span{display:flex;align-items:center;gap:6px;}
+.trust-bar span::before{content:'✓';color:var(--accent);font-weight:700;}
+
+/* PROGRAMS */
+.programs{padding:80px 24px;max-width:1140px;margin:0 auto;}
+.section-label{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.section-title{font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--text);letter-spacing:-1px;margin-bottom:48px;}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.prog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color 0.3s,transform 0.3s;}
+.prog-card:hover{border-color:var(--border-h);transform:translateY(-4px);}
+.card-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(135deg,#0f1a0f,#1a2a1a);}
+.card-body{padding:24px;flex:1;display:flex;flex-direction:column;}
+.card-status{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:16px;}
+.status-live{background:rgba(200,255,0,0.15);color:var(--accent);border:1px solid rgba(200,255,0,0.3);}
+.status-soon{background:rgba(255,165,0,0.1);color:#f59e0b;border:1px solid rgba(255,165,0,0.3);}
+.card-body h3{font-size:20px;font-weight:800;color:var(--text);line-height:1.2;margin-bottom:6px;}
+.card-subtitle{font-size:13px;color:var(--text3);margin-bottom:16px;}
+.card-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.meta-tag{font-size:12px;color:var(--text2);background:#111;border:1px solid var(--border);border-radius:6px;padding:4px 10px;}
+.card-skills{margin-bottom:20px;}
+.card-skills p{font-size:12px;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+.skills-list{display:flex;flex-wrap:wrap;gap:6px;}
+.skill-pill{font-size:11px;color:var(--text2);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:50px;padding:3px 10px;}
+.card-footer{margin-top:auto;padding-top:16px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.card-price{font-size:20px;font-weight:800;color:var(--text);}
+.card-instructor{font-size:12px;color:var(--text3);}
+.btn-card{display:inline-block;font-size:14px;font-weight:700;text-decoration:none;padding:10px 20px;border-radius:8px;transition:all 0.2s;}
+.btn-card-primary{background:var(--accent);color:#000;}
+.btn-card-primary:hover{opacity:0.9;}
+.btn-card-outline{border:1px solid var(--border-h);color:var(--text);margin-top:12px;width:100%;text-align:center;}
+.btn-card-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+/* WHY */
+.why{padding:80px 24px;background:var(--bg2);}
+.why-inner{max-width:1140px;margin:0 auto;}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:border-color 0.3s;}
+.why-card:hover{border-color:var(--border-h);}
+.why-icon{font-size:32px;margin-bottom:16px;}
+.why-card h3{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.why-card p{font-size:14px;color:var(--text2);line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 24px 32px;}
+.footer-inner{max-width:1140px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.footer-brand .logo{font-size:20px;font-weight:800;color:var(--text);display:block;margin-bottom:12px;}
+.footer-brand .logo span{color:var(--accent);}
+.footer-brand p{font-size:14px;color:var(--text2);line-height:1.7;max-width:260px;}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:16px;}
+.footer-col a{display:block;font-size:14px;color:var(--text2);text-decoration:none;margin-bottom:10px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--text);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--text3);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .cards-grid{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .nav-links,.nav-right .btn-ghost,.nav-right .btn-nav-cta{display:none;}
+  .nav-hamburger{display:flex;}
+}
+@media(max-width:600px){
+  .cards-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .hero h1{font-size:32px;}
+  .hero p{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="nav-logo">REV<span>O</span>BRIDGE</a>
+    <ul class="nav-links">
+      <li><a href="/#products">Products</a></li>
+      <li><a href="/#solutions">Solutions</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/academy" class="active">Academy</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/#contact" class="btn-ghost">Book a Call</a>
+      <a href="/training" class="btn-nav-cta">Enroll Now</a>
+      <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.add('active');document.body.style.overflow='hidden';"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">&times;</button>
+  <a href="/#products" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Products</a>
+  <a href="/#solutions" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Solutions</a>
+  <a href="/#about" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">About</a>
+  <a href="/academy" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Academy</a>
+  <a href="/#contact" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Contact</a>
+  <div class="mobile-ctas">
+    <a href="/#contact" class="mbtn-outline" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Book a Call</a>
+    <a href="/training" class="mbtn-primary" onclick="document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='';">Enroll Now</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Revobridge Academy</div>
+  <h1>Learn to Build AI Systems That Pay</h1>
+  <p>Businesses pay ₦500k–₦2M+ for what you'll learn to build here. No coding required.</p>
+  <div class="trust-bar">
+    <span>Hands-On Projects</span>
+    <span>Real Tools</span>
+    <span>Industry Mentors</span>
+    <span>Community Access</span>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <div class="section-label">Programs</div>
+  <div class="section-title">Choose Your Path</div>
+  <div class="cards-grid">
+
+    <!-- CARD 1 -->
+    <div class="prog-card">
+      <div class="card-thumb">🤖</div>
+      <div class="card-body">
+        <span class="card-status status-live">&#9679; Enrolling Now</span>
+        <h3>Building AI Agents & Chatbots with n8n</h3>
+        <p class="card-subtitle">Beginner to Real-World Deployment</p>
+        <div class="card-meta">
+          <span class="meta-tag">⏱ 4 Weeks</span>
+          <span class="meta-tag">🎯 Beginner</span>
+          <span class="meta-tag">👤 Emmanuel Elewachi</span>
+        </div>
+        <div class="card-skills">
+          <p>Skills you'll gain</p>
+          <div class="skills-list">
+            <span class="skill-pill">n8n</span>
+            <span class="skill-pill">AI Chatbots</span>
+            <span class="skill-pill">WhatsApp Bots</span>
+            <span class="skill-pill">Telegram Bots</span>
+            <span class="skill-pill">Instagram DM Bots</span>
+            <span class="skill-pill">No-Code Automation</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="card-price">&#8358;60,000</div>
+            <div class="card-instructor">by Emmanuel Elewachi</div>
+          </div>
+          <a href="/training" class="btn-card btn-card-primary" onclick="fbq('track','ViewContent',{content_name:'AI Agents Chatbots Program'});">View Program</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="prog-card">
+      <div class="card-thumb">⚡</div>
+      <div class="card-body">
+        <span class="card-status status-soon">⏳ Launching May 27, 2026</span>
+        <h3>Beginners Automation Program</h3>
+        <p class="card-subtitle">From Zero to Job-Ready</p>
+        <div class="card-meta">
+          <span class="meta-tag">⏱ 3 Weeks</span>
+          <span class="meta-tag">🎯 Beginner</span>
+          <span class="meta-tag">👤 Damola Adebisi</span>
+        </div>
+        <div class="card-skills">
+          <p>Skills you'll gain</p>
+          <div class="skills-list">
+            <span class="skill-pill">n8n</span>
+            <span class="skill-pill">Workflow Automation</span>
+            <span class="skill-pill">AI Basics</span>
+            <span class="skill-pill">Portfolio Building</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="card-price">&#8358;70,000</div>
+            <div class="card-instructor">by Damola Adebisi</div>
+          </div>
+          <a href="/academy/beginners" class="btn-card btn-card-primary" onclick="fbq('track','ViewContent',{content_name:'Beginners Automation Program'});">Join Waitlist</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="prog-card">
+      <div class="card-thumb">🚀</div>
+      <div class="card-body">
+        <span class="card-status status-soon">⏳ Launching June 2026</span>
+        <h3>Advanced Automation Program</h3>
+        <p class="card-subtitle">Land Your Next Client in 90 Days</p>
+        <div class="card-meta">
+          <span class="meta-tag">⏱ 6 Weeks</span>
+          <span class="meta-tag">🎯 Advanced</span>
+          <span class="meta-tag">👤 Emmanuel Elewachi</span>
+        </div>
+        <div class="card-skills">
+          <p>Skills you'll gain</p>
+          <div class="skills-list">
+            <span class="skill-pill">n8n</span>
+            <span class="skill-pill">Client Projects</span>
+            <span class="skill-pill">Portfolio</span>
+            <span class="skill-pill">Mock Interviews</span>
+            <span class="skill-pill">Mentorship</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="card-price">&#8358;150,000</div>
+            <div class="card-instructor">by Emmanuel Elewachi</div>
+          </div>
+          <a href="/academy/advanced" class="btn-card btn-card-primary" onclick="fbq('track','ViewContent',{content_name:'Advanced Automation Program'});">Join Waitlist</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY REVOBRIDGE ACADEMY -->
+<section class="why">
+  <div class="why-inner">
+    <div class="section-label">Why Us</div>
+    <div class="section-title">Why Revobridge Academy</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔨</div>
+        <h3>Build Real Systems</h3>
+        <p>Not theory. Not slides. You ship working automations in every session. Your portfolio is ready before you graduate.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>No Coding Required</h3>
+        <p>We use n8n — the same no-code tool agencies charge ₦500k+ to work with. You'll master it in weeks, not years.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>Industry Mentors</h3>
+        <p>Learn from practitioners who build for real clients today. Not academics who last worked in tech in 2015.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌐</div>
+        <h3>Community Access</h3>
+        <p>Join The 1% Automation Community. Network, get feedback, find collaborators, and land your first client.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="/">REV<span>O</span>BRIDGE</a>
+        <p>AI automation agency and academy. We build systems businesses rely on — and teach you to build them too.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Academy</h4>
+        <a href="/training">AI Agents & Chatbots</a>
+        <a href="/academy/beginners">Beginners Automation</a>
+        <a href="/academy/advanced">Advanced Automation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="/services/chatbots">AI Chatbots</a>
+        <a href="/services/automation">Workflow Automation</a>
+        <a href="/services/sales">AI Sales</a>
+        <a href="/services/agents">Custom AI Agents</a>
+        <a href="/services/consulting">AI Consulting</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <a href="mailto:hello@revobridgeai.com">hello@revobridgeai.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Revobridge AI. All rights reserved.</span>
+      <span>Lagos, Nigeria &middot; Serving businesses globally</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
