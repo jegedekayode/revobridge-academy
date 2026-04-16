@@ -45,17 +45,24 @@ fbq('init','1619450039476296');fbq('track','PageView');
 html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--text2);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 
+/* COUNTDOWN BANNER */
+.promo-banner{position:fixed;top:0;left:0;right:0;z-index:1100;background:#c8ff00;height:48px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.promo-banner-inner{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#0a0a0b;}
+.promo-banner-inner .timer{font-variant-numeric:tabular-nums;font-weight:800;letter-spacing:0.5px;min-width:68px;display:inline-block;text-align:center;}
+.promo-claim{background:#0a0a0b;color:#c8ff00;font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;}
+.promo-claim:hover{opacity:0.85;}
+@media(max-width:600px){.promo-banner-inner .promo-label{display:none;}.promo-banner{gap:8px;}.promo-banner-inner{gap:6px;font-size:13px;}}
+
 /* NAV */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;}
+.navbar{position:fixed;top:48px;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;}
 .navbar-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
 .nav-logo{font-size:18px;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-0.5px;}
 .nav-logo span{color:var(--accent-dark);}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
 .nav-links a{font-size:14px;color:var(--text3);text-decoration:none;font-weight:500;transition:color 0.2s;}
 .nav-links a:hover{color:var(--text);}
 .nav-right{display:flex;align-items:center;gap:12px;}
-.btn-ghost{font-size:14px;color:var(--text2);text-decoration:none;padding:8px 16px;border:1px solid var(--border);border-radius:8px;font-weight:500;}
-.btn-nav-cta{font-size:14px;font-weight:700;color:#fff;background:var(--accent-dark);text-decoration:none;padding:8px 20px;border-radius:8px;transition:opacity 0.2s;}
+.btn-nav-cta{font-size:14px;font-weight:700;color:#fff;background:var(--accent-dark);text-decoration:none;padding:8px 20px;border-radius:8px;transition:opacity 0.2s;border:none;cursor:pointer;}
 .btn-nav-cta:hover{opacity:0.88;}
 .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
@@ -66,7 +73,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text2);line-height
 .mobile-ctas{margin-top:32px;display:flex;flex-direction:column;gap:12px;}
 .mobile-ctas a{border-bottom:none!important;text-align:center;padding:14px 24px;border-radius:8px;font-weight:700;font-size:15px;}
 .mbtn-primary{background:var(--accent-dark);color:#fff;}
-.mbtn-outline{border:1px solid var(--border);color:var(--text);}
 
 /* LAYOUT */
 .container{max-width:900px;margin:0 auto;padding:0 24px;}
@@ -85,7 +91,7 @@ section{padding:80px 0;}
 .spots-line{text-align:center;margin-top:10px;font-size:13px;color:#d97706;font-weight:700;}
 
 /* HERO */
-.hero{padding:130px 24px 60px;text-align:center;}
+.hero{padding:178px 24px 60px;text-align:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid rgba(26,58,26,0.15);color:var(--accent-dark);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:28px;}
 .hero h1{font-size:clamp(36px,5.5vw,64px);font-weight:800;color:var(--text);line-height:1.08;letter-spacing:-2px;margin-bottom:20px;max-width:860px;margin-left:auto;margin-right:auto;}
 .hero h1 em{color:var(--accent-dark);font-style:normal;}
@@ -338,32 +344,42 @@ footer{background:#111;border-top:1px solid #222;padding:60px 24px 32px;}
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- COUNTDOWN BANNER -->
+<div class="promo-banner" id="promoBanner">
+  <div class="promo-banner-inner">
+    <span>&#9889;</span>
+    <span class="promo-label">40% OFF ends in</span>
+    <span class="timer" id="promoTimer">06:00:00</span>
+    <button class="promo-claim" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">Claim Your Spot</button>
+  </div>
+</div>
+
+<!-- NAVBAR — program-specific -->
 <nav class="navbar">
   <div class="navbar-inner">
     <a href="/" class="nav-logo">REV<span>O</span>BRIDGE</a>
     <ul class="nav-links">
-      <li><a href="/#products">Services</a></li>
-      <li><a href="/academy">Academy</a></li>
-      <li><a href="/#about">About</a></li>
-      <li><a href="/#contact">Contact</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#instructor">Instructor</a></li>
+      <li><a href="#enroll">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-right">
-      <a href="/#contact" class="btn-ghost">Book a Call</a>
-      <a href="#enroll" class="btn-nav-cta">Join Waitlist</a>
+      <button class="btn-nav-cta" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
       <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mm').classList.add('active');document.body.style.overflow='hidden';"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 <div class="mobile-menu" id="mm">
   <button class="mobile-menu-close" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">&times;</button>
-  <a href="/academy" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Academy</a>
-  <a href="/#products" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Services</a>
-  <a href="/#about" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">About</a>
-  <a href="/#contact" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Contact</a>
+  <a href="#curriculum" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Curriculum</a>
+  <a href="#projects" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Projects</a>
+  <a href="#instructor" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Instructor</a>
+  <a href="#enroll" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Pricing</a>
+  <a href="#faq" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">FAQ</a>
   <div class="mobile-ctas">
-    <a href="/#contact" class="mbtn-outline" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Book a Call</a>
-    <a href="#enroll" class="mbtn-primary" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';">Join Waitlist</a>
+    <button class="mbtn-primary" onclick="document.getElementById('mm').classList.remove('active');document.body.style.overflow='';document.getElementById('enroll').scrollIntoView({behavior:'smooth'});">Enroll Now</button>
   </div>
 </div>
 
@@ -399,20 +415,20 @@ footer{background:#111;border-top:1px solid #222;padding:60px 24px 32px;}
 <div class="stats-bar">
   <div class="stats-grid container-wide">
     <div class="stat-item">
-      <div class="stat-num">3<span>wks</span></div>
-      <div class="stat-label">Program Duration</div>
+      <div class="stat-num">27<span>+</span></div>
+      <div class="stat-label">Learners Trained</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Portfolio Projects</div>
+      <div class="stat-num">150<span>+</span></div>
+      <div class="stat-label">Workflows Built by Past Students</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">5</div>
-      <div class="stat-label">Curriculum Modules</div>
+      <div class="stat-num">&#8358;17M<span>+</span></div>
+      <div class="stat-label">Earned by Past Students</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">50</div>
-      <div class="stat-label">Max Students</div>
+      <div class="stat-label">Max Students (This Cohort)</div>
     </div>
   </div>
 </div>
@@ -435,7 +451,7 @@ footer{background:#111;border-top:1px solid #222;padding:60px 24px 32px;}
 </section>
 
 <!-- CURRICULUM — 5 MODULES -->
-<section>
+<section id="curriculum">
   <div class="container">
     <div class="section-title">5 Modules. 3 Weeks. One New Career.</div>
     <p class="section-sub">Every session is live, hands-on, and recorded. You build in class — not at home alone.</p>
@@ -569,7 +585,7 @@ footer{background:#111;border-top:1px solid #222;padding:60px 24px 32px;}
 </section>
 
 <!-- WHAT YOU'LL BUILD — 3 PROJECTS -->
-<section style="background:var(--bg2);">
+<section id="projects" style="background:var(--bg2);">
   <div class="container">
     <div class="section-title">3 Projects. Real Work. Portfolio-Ready.</div>
     <p class="section-sub">Not toy examples. These are the exact workflows businesses pay ₦200k–₦500k+ to have built.</p>
@@ -670,14 +686,13 @@ footer{background:#111;border-top:1px solid #222;padding:60px 24px 32px;}
       <div class="tool-card"><span class="tool-icon">🤖</span><span>OpenAI</span></div>
       <div class="tool-card"><span class="tool-icon">📊</span><span>Google Sheets</span></div>
       <div class="tool-card"><span class="tool-icon">🗄️</span><span>Supabase</span></div>
-      <div class="tool-card"><span class="tool-icon">💬</span><span>WhatsApp API</span></div>
       <div class="tool-card"><span class="tool-icon">📡</span><span>Webhooks &amp; APIs</span></div>
     </div>
   </div>
 </section>
 
 <!-- INSTRUCTOR -->
-<section>
+<section id="instructor">
   <div class="container">
     <div class="section-title">Your Instructor</div>
     <div class="instructor-wrap">
@@ -686,12 +701,12 @@ footer{background:#111;border-top:1px solid #222;padding:60px 24px 32px;}
       </div>
       <div class="instructor-info">
         <div class="instructor-name">Damola Ayeloja</div>
-        <div class="instructor-title">No-Code / Low-Code Developer &bull; n8n Expert</div>
+        <div class="instructor-title">No-Code Developer &bull; n8n Expert &bull; AI Automation Specialist</div>
         <div class="instructor-cred">
-          <p>"Breaking down complex automation into skills you can monetise immediately."</p>
+          <p><em>"I don't teach theory. I teach you to build the exact systems businesses are paying for right now."</em></p>
         </div>
-        <p>Damola is a No-Code/Low-Code Developer and n8n Expert who helps businesses replace manual processes with intelligent, self-running systems. With deep hands-on experience building AI agents, chatbots, and no-code workflows, he's worked with business owners across industries to redesign how they operate — faster, leaner, and without writing a single line of code.</p>
-        <p>At Revobridge Academy, Damola breaks down complex automation concepts into practical, buildable skills you can monetise immediately.</p>
+        <p>Damola is a No-Code Developer, n8n Expert, and AI Automation Specialist who helps businesses replace manual processes with intelligent, self-running systems. With deep hands-on experience building AI agents, RAG chatbots, and no-code workflows, he's worked with business owners across industries to redesign how they operate — faster, leaner, and without writing a single line of code.</p>
+        <p>At Revobridge Academy, Damola teaches you to build the exact automations clients pay ₦300k–₦800k/month for — from your first workflow to full deployment.</p>
       </div>
     </div>
   </div>
@@ -843,10 +858,10 @@ footer{background:#111;border-top:1px solid #222;padding:60px 24px 32px;}
           <li>Everything in Beginners</li>
           <li>Everything in Advanced</li>
           <li>9 weeks total training</li>
-          <li>Guaranteed path from zero to clients</li>
+          <li>Clients Acquisition System</li>
           <li>Save &#8358;50,000 vs. buying separately</li>
         </ul>
-        <button class="btn-lime" style="width:100%;" onclick="enrollNow(170000,'Beginners + Advanced Combo')">Get the Combo Deal</button>
+        <button class="btn-lime" style="width:100%;" onclick="enrollCombo()">Get the Combo Deal</button>
         <p style="text-align:center;margin-top:10px;font-size:12px;color:var(--text3);">Pay now, start Beginners on May 27</p>
       </div>
 
@@ -868,7 +883,7 @@ footer{background:#111;border-top:1px solid #222;padding:60px 24px 32px;}
 </section>
 
 <!-- FAQ -->
-<section style="background:var(--bg2);">
+<section id="faq" style="background:var(--bg2);">
   <div class="container">
     <div class="section-title">Frequently Asked Questions</div>
     <div class="faq-list">
@@ -1106,6 +1121,49 @@ function enrollNow(value, name) {
   ttq.track('InitiateCheckout');
   window.open('https://paystack.shop/pay/revobridge-bap', '_blank', 'noopener,noreferrer');
 }
+
+function enrollCombo() {
+  fbq('track', 'InitiateCheckout', {
+    content_name: 'Beginners + Advanced Combo',
+    content_category: 'Academy',
+    value: 170000,
+    currency: 'NGN'
+  });
+  ttq.track('InitiateCheckout');
+  window.open('https://paystack.shop/pay/revo-combobapandaap', '_blank', 'noopener,noreferrer');
+}
+
+// Countdown timer — 6 hours from first visit
+(function() {
+  var KEY = 'revo_timer_start';
+  var DURATION = 6 * 60 * 60 * 1000; // 6 hours in ms
+  var stored = localStorage.getItem(KEY);
+  var start = stored ? parseInt(stored, 10) : Date.now();
+  if (!stored) localStorage.setItem(KEY, start);
+
+  function tick() {
+    var elapsed = Date.now() - start;
+    var remaining = DURATION - elapsed;
+    var banner = document.getElementById('promoBanner');
+    var timerEl = document.getElementById('promoTimer');
+    if (remaining <= 0) {
+      if (banner) banner.style.display = 'none';
+      // Shift navbar and hero back up when banner gone
+      document.querySelector('.navbar').style.top = '0';
+      document.querySelector('.hero').style.paddingTop = '130px';
+      return;
+    }
+    var h = Math.floor(remaining / 3600000);
+    var m = Math.floor((remaining % 3600000) / 60000);
+    var s = Math.floor((remaining % 60000) / 1000);
+    timerEl.textContent =
+      String(h).padStart(2,'0') + ':' +
+      String(m).padStart(2,'0') + ':' +
+      String(s).padStart(2,'0');
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
 
 // Module accordion
 function toggleModule(header) {

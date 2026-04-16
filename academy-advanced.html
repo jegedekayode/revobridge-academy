@@ -558,8 +558,7 @@ function submitDetails(e) {
 function applyNow() {
   fbq('track','InitiateCheckout',{value:150000,currency:'NGN',content_name:'Advanced Automation Program'});
   ttq.track('InitiateCheckout');
-  // TODO: Replace with Paystack popup implementation
-  window.open('https://wa.me/2348131618668?text=Hi%2C%20I%20want%20to%20apply%20for%20the%20Advanced%20Automation%20Program','_blank');
+  window.open('https://paystack.shop/pay/spvc3nfwet', '_blank', 'noopener,noreferrer');
 }
 
 // Scroll reveal
